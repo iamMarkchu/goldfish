@@ -33,6 +33,11 @@ func init() {
 				&controllers.PolicyController{},
 			),
 		),
+		beego.NSNamespace("/categories",
+			beego.NSInclude(
+				&controllers.CategoryController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns, ns2)
 }

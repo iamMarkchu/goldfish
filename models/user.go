@@ -12,16 +12,16 @@ const RoleAdmin = "admin"
 const RoleOperator = "operators"
 
 type User struct {
-	Id          int
-	UserName    string    `orm:"unique;size(50);description(用户名)"`
+	Id          int        `json:"id"`
+	UserName    string    `orm:"unique;size(50);description(用户名)" json:"user_name"`
 	Password    string    `orm:"description(密码)" json:"-"`
-	Mobile      string    `orm:"unique;description(手机号)"`
-	Avatar      string    `orm:"description(头像)"`
-	Description string    `orm:"type(text);description(用户描述)"`
-	Role        string    `orm:"size(20);default(normal_users);description(角色)"`
-	Status      uint8     `orm:"default(1);description(状态字段, 1 => 正常, 0 => 删除, 2 => 禁用)"`
-	Created     time.Time `orm:"auto_now_add;type(datetime);description(创建时间)"`
-	Updated     time.Time `orm:"auto_now;type(datetime);description(更新时间)"`
+	Mobile      string    `orm:"unique;description(手机号)" json:"mobile"`
+	Avatar      string    `orm:"description(头像)" json:"avatar"`
+	Description string    `orm:"type(text);description(用户描述)" json:"description"`
+	Role        string    `orm:"size(20);default(normal_users);description(角色)" json:"role"`
+	Status      uint8     `orm:"default(1);description(状态字段, 1 => 正常, 0 => 删除, 2 => 禁用)" json:"status"`
+	Created     time.Time `orm:"auto_now_add;type(datetime);description(创建时间)" json:"created"`
+	Updated     time.Time `orm:"auto_now;type(datetime);description(更新时间)" json:"updated"`
 }
 
 type UserWithToken struct {
