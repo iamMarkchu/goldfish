@@ -1,0 +1,2 @@
+p, normal_users, /api/users/:id, GET
+p, normal_users, /api/users, GET
